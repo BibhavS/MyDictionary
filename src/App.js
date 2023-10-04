@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import router from './routes';
+import { Outlet, RouterProvider } from 'react-router-dom';
+import { wordData } from './contexts/WordContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Header/>
+     <RouterProvider router={router}>
+        <div>
+          <Outlet/>
+        </div>
+     </RouterProvider>
+    </>
   );
 }
 
